@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ] # Trigger workflow on pushes to the "main" branch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Node.js and npm
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18' # Specify your desired Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests 
+      # Add your testing commands here (if applicable)
+      # Example: run: npm test
+
+    - name: Build (if applicable)
+      # Add your build commands here (e.g., for bundling)
+      # Example: run: npm run build 
+
+    - name: Deploy 
+      # Add deployment steps here (optional)
+      # Example: 
+      # - Deploy to GitHub Pages
+      # - Deploy to a hosting provider (e.g., Netlify, Vercel)
